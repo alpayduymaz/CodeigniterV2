@@ -42,11 +42,11 @@
             <div class="col-md-2" style="margin-top:8%;padding:8px;"></div>
             <div class="col-md-6" style="margin-top:8%;padding:8px;">
             <h1>Ürün İçeriğini Belirleyin</h1>
-               <form action="insertUrunIcerik" method="post">
+               <form action="insert" method="post">
                <label>Ürün İçeriği</label>
                   <div class="from-group row">
                      <div class="col-md-10">
-                        <select class="form-control" id="hammadde" name="hammadde">
+                        <select class="form-control" id="hammaddeId" name="hammaddeId">
                            <option value="0">Hammadde Seç</option>
                            <?php
                               foreach ($hammadde as $row){
@@ -66,15 +66,40 @@
          </div>
 
          
-         <?php
-         foreach ($urun as $row){
-            echo $row->Id;
-
-            echo $row->name;
-         }
-     ?>
+         
       </div>
    
+      <div class="container">
+            <table class="table table-hover text-center">
+               <thead class="table-dark">
+                  <tr>
+                     <th scope="col">Id</th>
+                     <th scope="col">UrunId</th>
+                     <th scope="col">hammaddeId</th>
+                     <th scope="col">Urun Adı</th>
+                     <th scope="col">Hammadde Adı</th>
+                     <!-- <th scope="col">Action</th> -->
+                  </tr>
+               </thead>
+               <tbody>
+                  <?php
+                     foreach (json_decode(json_encode($urunHammaddeMapping),true) as $row){?>
+                     <tr>
+                        <td><?php echo $row['Id']?></td>
+                        <td><?php echo $row['urunId']?></td>
+                        <td><?php echo $row['hammaddeId']?></td>
+                        <td><?php echo $row['urunAdi']?></td>
+                        <td><?php echo $row['hammaddeAdi']?></td>
+                        <!-- <td>
+                           <a href="" class="link-dark"><i class="fa-solid fa-trash fs-5"></i></a>
+                        </td> -->
+                     </tr>
+                        <?php
+                     }
+                  ?>
+               </tbody>
+            </table>
+         </div>
    
 
      

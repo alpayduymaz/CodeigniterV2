@@ -6,8 +6,8 @@ class UrunHammaddeMapping extends CI_Model{
         return $query->result();
     }
 
-    public function insertUrunHammaddeMapping($formData){
-        return $this->db->insert('UrunHammaddeMapping', $formData);
+    public function insertUrunHammaddeMapping($formDataMap){
+        return $this->db->insert('UrunHammaddeMapping', $formDataMap);
     }
 
     /**

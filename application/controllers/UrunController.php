@@ -21,12 +21,16 @@ class UrunController extends CI_Controller{
         );
         $result = $this->Urun->insertUrun($fromData);
 
-        
+        $datas = explode('|',$_POST['hammaddeId']);
+        $id = $datas[0];
+        $name = $datas[1];
         
 
         $fromDataMap = array(
-         'urunId' => $this->Urun->getUruns().count() + 1, // burda o name ait ürünü dbden çekip idsini atcan
-         'hammaddeId' => filter_input(INPUT_POST, 'hammadde', FILTER_SANITIZE_STRING),
+         'urunId' => 2,
+         'urunAdi' => $this->input->post('name'),
+         'hammaddeId' => 3,
+         'hammaddeAdi' => "Yağ",
          );
 
          $resultMap = $this->UrunHammaddeMapping->insertUrunHammaddeMapping($fromDataMap);
