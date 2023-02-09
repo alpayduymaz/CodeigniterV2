@@ -42,7 +42,7 @@
             <div class="col-md-2" style="margin-top:8%;padding:8px;"></div>
             <div class="col-md-6" style="margin-top:8%;padding:8px;">
             <h1>Ürün İçeriğini Belirleyin</h1>
-               <form action="insertUrun" method="post">
+               <form action="insertUrunIcerik" method="post">
                <label>Ürün İçeriği</label>
                   <div class="from-group row">
                      <div class="col-md-10">
