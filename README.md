@@ -1,1 +1,1 @@
-# CodeigniterV2
+# MVC yapısı ile PHP Codeigniter
