@@ -7,14 +7,8 @@ class UrunController extends CI_Controller{
         $this->load->model('Hammadde');
         $this->load->model('UrunHammaddeMapping');
         $this->load->helper('url');
-
-        
     }
 
-    public function insertUrunIcerik(){
-      
-    }
-    
     public function insert(){
         $fromData = array(
             'Name' => $this->input->post('name'),
@@ -41,6 +35,7 @@ class UrunController extends CI_Controller{
         else
             echo $result;
     }
+    
     public function getUruns(){
         $data['urun'] = $this->Urun->getUruns();
         $data['hammadde'] = $this->Hammadde->getHammaddes();
