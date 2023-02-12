@@ -15,18 +15,18 @@ class UrunController extends CI_Controller{
         );
         $result = $this->Urun->insertUrun($fromData);
 
-        $datas = explode('|',$_POST['hammaddeId']);
-        $id = $datas[0];
-        $name = $datas[1];
+        $resUrun = $this->Urun->getUrunByName($this->input->post('name'));
+        echo "<script>console.log('Debug Objects: " . json_encode($resUrun[0]->Id) . "' );</script>";
         
+        $resHammadde = $this->Hammadde->getHammaddeByName($_POST['hammaddeler']);
+        echo "<script>console.log('Debug Objects: " . json_encode($resHammadde) . "' );</script>";
 
         $fromDataMap = array(
-         'urunId' => 2,
+         'urunId' => json_encode($resUrun[0]->Id),
          'urunAdi' => $this->input->post('name'),
-         'hammaddeId' => 3,
-         'hammaddeAdi' => "Yağ",
+         'hammaddeId' => $_POST['hammaddeler'],
+         'hammaddeAdi' => json_encode($resHammadde[0]->name),
          );
-
          $resultMap = $this->UrunHammaddeMapping->insertUrunHammaddeMapping($fromDataMap);
          
 
